@@ -16,7 +16,7 @@ export class Fighter{
         return this.health = this.health - damage;
     }
 
-    hit(enemy, point)
+    hit(enemy, point = 5)
     {
         console.log(point);
         let damage = point * this.power;
