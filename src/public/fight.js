@@ -1,1 +1,26 @@
-// create async function fight
+let fight = async function Fight(fighter, improvedFighter, ...point = [5,2])
+{
+    fighter.hit(improvedFighter,point[0]);
+    improvedFighter.doubleHit(fighter, point[0]);
+    point = point.shift();
+    if (fighter.health > 0 && improvedFighter.health > 0) 
+    {
+        await fight(fighter, improvedFighter, ...point);
+    }
+    else
+    {
+        if (fighter.health < 0)
+        {
+            await fighter.knockout();
+            console.log(`${fighter.name} is in knockout`);
+            console.log(`${improvedFighter.name} health is ${improvedFighter.health}`);
+        } else 
+        {
+            await improvedFighter.knockout();
+            console.log(`${improvedFighter.name} is in knockout`);
+            console.log(`${fighter.name} health is ${fighter.health}`);
+        }
+
+        console.log("Game over");
+    }
+}
