@@ -1,4 +1,7 @@
-let fight = async function Fight(fighter, improvedFighter, ...point = [5,2])
+import {Fighter} from './fighter'
+import {ImprovedFighter} from './improvedFighter'
+
+export let fight = async function Fight(fighter, improvedFighter, ...point)
 {
     fighter.hit(improvedFighter,point[0]);
     improvedFighter.doubleHit(fighter, point[0]);
