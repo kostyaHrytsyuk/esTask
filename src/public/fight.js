@@ -1,11 +1,13 @@
 import {Fighter} from './fighter'
 import {ImprovedFighter} from './improvedFighter'
 
-export let fight = async function Fight(fighter, improvedFighter, ...point)
+export let fight = async function Fight(fighter, improvedFighter, ...point )
 {
     fighter.hit(improvedFighter,point[0]);
     improvedFighter.doubleHit(fighter, point[0]);
-    point = point.shift();
+    debugger;
+    point.shift();
+    console.log(point);
     if (fighter.health > 0 && improvedFighter.health > 0) 
     {
         await fight(fighter, improvedFighter, ...point);

@@ -18,12 +18,13 @@ export class Fighter{
 
     hit(enemy, point)
     {
+        console.log(point);
         let damage = point * this.power;
         enemy.setDamage(damage);
     }
 
     knockout(){
-        return fightPromise = new Promise((resolve,reject) => {
+        let fightPromise = new Promise((resolve,reject) => {
             console.log("time is over");
             setTimeout(() => {
                 resolve();
