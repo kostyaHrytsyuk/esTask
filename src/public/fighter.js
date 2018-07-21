@@ -1,5 +1,4 @@
-// Create class Fighter
-class Fighter{
+export class Fighter{
     constructor(name, power, health)
     {
         this.name = name;
@@ -17,14 +16,15 @@ class Fighter{
         return this.health = this.health - damage;
     }
 
-    hit(enemy, point)
+    hit(enemy, point = 5)
     {
+        console.log(point);
         let damage = point * this.power;
         enemy.setDamage(damage);
     }
 
     knockout(){
-        return fightPromise = new Promise((resolve,reject) => {
+        let fightPromise = new Promise((resolve,reject) => {
             console.log("time is over");
             setTimeout(() => {
                 resolve();
